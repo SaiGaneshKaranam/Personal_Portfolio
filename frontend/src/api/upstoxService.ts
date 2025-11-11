@@ -10,6 +10,7 @@ export const getHoldings = async (token: string) => {
     });
     return response.data;
   } catch (error: any) {
+    localStorage.removeItem("upstox_token");
     console.error("Error fetching holdings:", error.response?.data || error.message);
     throw error;
   }
@@ -23,6 +24,7 @@ export const getQuote = async (symbol: string, token: string) => {
     });
     return response.data;
   } catch (error: any) {
+    localStorage.removeItem("upstox_token");
     console.error("Error fetching quote:", error.response?.data || error.message);
     throw error;
   }
